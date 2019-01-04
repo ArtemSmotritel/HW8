@@ -37,7 +37,7 @@ function Fridge(power) {
   }
 
 }
-function Sell(power, years_old, ) {
+function Sell(power, years_old, condition) {
   Machine.apply(this, arguments)  //1. Надо ли добавлять эту строку для наследования power ?
   Fridge.apply(this, arguments)
 
@@ -60,7 +60,18 @@ function Sell(power, years_old, ) {
     else if (power < 500) {    
       this.deductPrice()
     }
-
+    if (years_old < 5) {
+      this.addPrice()
+    }
+    else if (years_old > 5) {
+      this.deductPrice()
+    }
+    if (condition == 1) | (condition == 2) | (condition == 3) {
+      this.deductPrice()
+    }
+    else if (condition == 4) | (condition == 5) {
+      this.addPrice()
+    }
   }
   else if (food.length !=== 0) {
     alert("You can not sell this fridge.")
